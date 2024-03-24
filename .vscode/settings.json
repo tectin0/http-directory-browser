@@ -1,15 +1,19 @@
 {
     "rust-analyzer.cargo.target": "wasm32-unknown-unknown",
     "rust-analyzer.cargo.extraEnv": {
-        "RUSTFLAGS": "--cfg=web_sys_unstable_apis"
+        "RUSTFLAGS": "--cfg=web_sys_unstable_apis",
+        "BASE_URL": "http://localhost:8080"
     },
     "rust-analyzer.check.extraEnv": {
-        "RUSTFLAGS": "--cfg=web_sys_unstable_apis"
+        "RUSTFLAGS": "--cfg=web_sys_unstable_apis",
+        "BASE_URL": "http://localhost:8080"
     },
     "rust-analyzer.server.extraEnv": {
-        "RUSTFLAGS": "--cfg=web_sys_unstable_apis"
+        "RUSTFLAGS": "--cfg=web_sys_unstable_apis",
+        "BASE_URL": "http://localhost:8080"
     },
     "rust-analyzer.runnables.extraEnv": {
-        "RUSTFLAGS": "--cfg=web_sys_unstable_apis"
+        "RUSTFLAGS": "--cfg=web_sys_unstable_apis",
+        "BASE_URL": "http://localhost:8080"
     }
 }

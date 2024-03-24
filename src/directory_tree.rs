@@ -100,8 +100,7 @@ impl DirectoryNode {
                         if self.children.is_empty() {
                             HTTP_CONNECTOR
                                 .get_directory_list(
-                                    format!("{}/{}", BASE_URL.get().unwrap(), path_request)
-                                        .as_str(),
+                                    format!("{}/{}", BASE_URL, path_request).as_str(),
                                 )
                                 .unwrap();
                         } else {
@@ -117,10 +116,7 @@ impl DirectoryNode {
                     .clicked_by(egui::PointerButton::Secondary)
                     .then(|| {
                         HTTP_CONNECTOR
-                            .request_zip(
-                                format!("{}/{}/{}", BASE_URL.get().unwrap(), path_request, name)
-                                    .as_str(),
-                            )
+                            .request_zip(format!("{}/{}/{}", BASE_URL, path_request, name).as_str())
                             .unwrap();
                     })
             });

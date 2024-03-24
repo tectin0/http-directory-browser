@@ -11,7 +11,7 @@ pub struct App {
     directory_tree: DirectoryTree,
 }
 
-pub static BASE_URL: OnceLock<String> = OnceLock::new();
+pub const BASE_URL: &str = std::env!("BASE_URL");
 
 impl App {
     pub fn new(cc: &eframe::CreationContext) -> Self {
@@ -24,11 +24,9 @@ impl App {
 
         CURRENT_DIRECTORY_LIST.get_or_init(|| Mutex::new(Vec::new().into()));
 
-        let base_url = BASE_URL.get_or_init(|| {
-            std::env::var("BASE_URL").unwrap_or_else(|_| "http://localhost:8000".to_string())
-        });
+        log::debug!("Base URL: {}", BASE_URL);
 
-        HTTP_CONNECTOR.get_directory_list(base_url).unwrap();
+        HTTP_CONNECTOR.get_directory_list(BASE_URL).unwrap();
 
         Self {
             directory_tree: DirectoryTree::new(),
