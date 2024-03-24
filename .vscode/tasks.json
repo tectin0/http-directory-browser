@@ -1,0 +1,11 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Trunk Serve",
+            "type": "shell",
+            "command": "$env:RUSTFLAGS='--cfg=web_sys_unstable_apis'; trunk serve",
+            "problemMatcher": []
+        }
+    ]
+}
